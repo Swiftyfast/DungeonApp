@@ -11,12 +11,18 @@ namespace DungeonLibrary.Encounters
         //fields
 
         //props
+        //base option
+        //public string BaseOption { get; set; }
+        //public ConsequenceHandler BaseConsequences { get; set; }
 
         //ctor
-        public WorldEncounters(string name, string description)
+        public WorldEncounters(string name, string description, string baseOption, string secondOptionGetter, string secondOptionText)
         {
             Name = name;
             Description = description;
+            BaseOption = baseOption;
+            SecondOptionGetter = secondOptionGetter;
+            SecondOptionText = secondOptionText;
         }
         //methods
 

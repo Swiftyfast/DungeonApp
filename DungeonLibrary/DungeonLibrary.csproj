@@ -45,16 +45,14 @@
     <Compile Include="Classes\Captain.cs" />
     <Compile Include="Classes\Ship.cs" />
     <Compile Include="Combat.cs" />
-    <Compile Include="Dragon.cs" />
+    <Compile Include="ConsequenceHandler.cs" />
     <Compile Include="Encounter.cs" />
     <Compile Include="Encounters\CombatEncounters.cs" />
     <Compile Include="Encounters\WorldEncounters.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Rabbit.cs" />
     <Compile Include="Race.cs" />
-    <Compile Include="Turtle.cs" />
-    <Compile Include="Vampire.cs" />
+    <Compile Include="Traits.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

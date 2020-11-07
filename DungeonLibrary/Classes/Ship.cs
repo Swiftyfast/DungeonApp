@@ -10,8 +10,6 @@ namespace DungeonLibrary.Classes
     public class Ship
     {
         //fields
-        private int _maxLuck;
-        private int _luck;
         private int _hull;
 
         //props
@@ -32,16 +30,6 @@ namespace DungeonLibrary.Classes
             get { return _hull; }
             set { _hull = value <= MaxHull ? value : MaxHull; }
         }
-        
-        public int MaxLuck {
-            get { return _maxLuck; }
-            set { _maxLuck = MyCaptain.Wits * MyCaptain.Tactics * Engines; }
-        }
-        public int Luck
-        {
-            get { return _luck; }
-            set { _luck = value <= MaxLuck ? value : MaxLuck; }
-        }
         //ctor
         public Ship(string name, Captain myCaptain, int engines, int hull, int weaponsInt, string weaponsWords, bool scienceLab, bool recRoom)
         {
@@ -53,8 +41,7 @@ namespace DungeonLibrary.Classes
             WeaponsWords = weaponsWords;
             ScienceLab = scienceLab;
             RecRoom = recRoom;
-            MaxLuck = MyCaptain.Wits * MyCaptain.Tactics * Engines;
-            Luck = MyCaptain.Wits * MyCaptain.Tactics * Engines; //I think we need to set this first. 
+
         }
 
         //methods

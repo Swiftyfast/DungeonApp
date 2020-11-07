@@ -12,10 +12,7 @@ namespace DungeonLibrary.Classes
 
         //props
         public string Name { get; set; }
-        public int Tactics { get; set; }
-        public int Engineering { get; set; }
-        public int Charisma { get; set; }
-        public int Wits { get; set; }
+        public string Expertise { get; set; }
         public string Description { get; set; }
 
 
@@ -24,18 +21,12 @@ namespace DungeonLibrary.Classes
         /// This will be your fearless leader as you travel the skies.
         /// </summary>
         /// <param name="name">The Name of the Captain</param>
-        /// <param name="tactics">How good they are tactically.</param>
-        /// <param name="engineering">How good they are at repairing the ship.</param>
-        /// <param name="charisma">How charismatic they are.</param>
-        /// <param name="wits">How they can figure something out.</param>
+        /// <param name="expertise">What this captain excels at</param>
         /// <param name="description">"describe the captain</param>
-        public Captain(string name, int tactics, int engineering, int charisma, int wits, string description)
+        public Captain(string name, string expertise, string description)
         {
             Name = name;
-            Tactics = tactics;
-            Engineering = engineering;
-            Charisma = charisma;
-            Wits = wits;
+            Expertise = expertise;
             Description = description;
         }
 

@@ -14,10 +14,13 @@ namespace DungeonLibrary.Encounters
         //props
 
         //ctor
-        public CombatEncounters(string name, string description)
+        public CombatEncounters(string name, string description, string baseOption, string secondOptionGetter, string secondOptionText)
         {
             Name = name;
             Description = description;
+            BaseOption = baseOption;
+            SecondOptionGetter = secondOptionGetter;
+            SecondOptionText = secondOptionText;
         }
         //methods
     }
