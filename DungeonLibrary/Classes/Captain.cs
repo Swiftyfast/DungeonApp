@@ -38,7 +38,8 @@ namespace DungeonLibrary.Classes
         //methods
         public override string ToString()
         {
-            return Name;
+            return string.Format("Captain name: " + Name + "\n" +
+                "Expertise: " + Expertise);
         }
 
     }

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 //Added the following for access to our classes.
 using DungeonLibrary;
 using DungeonLibrary.Classes;
-using DungeonLibrary.Encounters;
 
 namespace DungeonApplication
 {
@@ -19,22 +18,23 @@ namespace DungeonApplication
             Console.WriteLine("Your journey begins...\n");
             //Keep a running total variable for the user's score.
             int score = 0;
-            int crewMorale = 50;
-            //TODO 1. Create a Weapon and a Player
-            Weapon sword = new Weapon(1, 8, "Long Sword", 10, false);
-            Player player = new Player("Sir Arthur", 70, 2, 40, 40, Race.Elf, sword);
-            Captain c1 = new Captain("Captain Greybeard", "Wits", "Grizzled and uncompromising, Captain Greybeard expects perfection from his sailors.");
-            Ship monty = new Ship("the Montgomery", c1, 2, 3, 1, "Basic Deckguns. Nothing Special.", true, false);
-            //Console.WriteLine(sword);//-commented out after testing ToString() return
-
-
+            //Weapon sword = new Weapon(1, 8, "Long Sword", 10, false);
+            //Player player = new Player("Sir Arthur", 70, 2, 40, 40, Race.Elf, sword);
+            Captain c1 = new Captain("Captain Greybeard", "Tactics", "Grizzled and uncompromising, Captain Greybeard expects perfection from his sailors.");
+            PlayerShip monty = new PlayerShip("the Montgomery", c1, 7, 10, 10, 5, true, false);
+           
             //TODO x1. Create Encounters
             #region Encounters
-            WorldEncounters we1 = new WorldEncounters("Heavy Storm", "A storm approaches. You cannot escape it. Consequences happen.", "The only way out is through. Baton down the hatches.", "Wits", "You've never felt more alive then flying in storms. You can handle this.");
-            CombatEncounters ce1 = new CombatEncounters("Hammerhead Class", "A hammerhead class frigate appears out of the clouds. Good news lads- we're hunting sky pirate today.", "Attack!", "Tactics", "Our hull can take a glancing blow, and we can follow that up with a point blank shot.");
+            //WorldEncounters we1 = new WorldEncounters("world", "Heavy Storm", "A storm approaches. You cannot escape it. Consequences happen.", "The only way out is through. Baton down the hatches.", "Wits", "You've never felt more alive then flying in storms. You can handle this.", "Engines", 5);
+            EnemyShip hammerHead = new EnemyShip("Hammerhead Class Frigate", "A hammerhead class frigate appears out of the clouds. Good news lads- we're hunting sky pirate today.", 3, 3, 3, 8, "Engineering", "Our hull can take a glancing blow, and we can follow that up with a point blank shot.");
+            EnemyShip scorpion = new EnemyShip("Scorpion Class Gunship", "Scorpion class gunship following behind us, Captain. Not responding to communications. Looks like she's waiting for a chance to attack.", 3, 5, 5, 7, "Tactics", "Keep it moving- they're not a mobile vessel. And don't stay in front of that tail cannon for too long.");
+            EnemyShip voidSquid = new EnemyShip("Voidsquid light crusior", "Voidsquid light crusior. I didn't know that they could get into our territory with those things. We can't let it escape.", 4, 6, 6, 5, "Wits", "Try and tangle it's arms. It'll be less effective that way.");
+            EnemyShip distressSignalOne = new EnemyShip("Scuttled Altaris Heavy Crusior", "One of the old ships, Captain, looks like an Altaris Heavy Crusior. And it looks dead in the water. Metaphorically, of course. Only pirates use these things anymore, what should we do?", 1, 2, 2, 7, "Charisma", "Let's hail them. Get them to surrender without bloodshed.");
             #endregion
-            Encounter[] worldEncounterArray = { we1 };
-            Encounter[] combatEncounterArray = { ce1 };
+            //Encounter[] worldEncounterArray = { we1 };
+            //Encounter[] combatEncounterArray = { ce1 };
+            //Encounter[] encounterArray = { hammerHead };
+            EnemyShip[] enemyShipArray = { hammerHead, scorpion, voidSquid, distressSignalOne };
 
             //TODONE 2. Create a loop for the room and monster
             bool exit = false;
@@ -44,50 +44,38 @@ namespace DungeonApplication
                 Console.WriteLine(GetRoom());
 
                 Random rand = new Random();
-                int coinFlip = rand.Next(1, 3);
-                Encounter encounter;
-                if (coinFlip == 1)
-                {
-                    int randomEncounter = rand.Next(worldEncounterArray.Length);
-                    encounter = worldEncounterArray[randomEncounter];
-                } else
-                {
-                    int randomEncounter = rand.Next(combatEncounterArray.Length);
-                    encounter = combatEncounterArray[randomEncounter];
-                }
-               
-                
+                int encounterNumber = rand.Next(enemyShipArray.Length);
+                EnemyShip encounter = enemyShipArray[encounterNumber];
+
+                Console.WriteLine("Captain, we have a ship on sensors!");
                 Console.WriteLine(encounter.Description);
                
                 bool reload = false;
+
+                ////TO DO FOR SUNDAY
+                ///////TO DO FOR SUNDAY
+                ///////TO DO FOR SUNDAY
+                ///////TO DO FOR SUNDAY
+                ///////TO DO FOR SUNDAY
+                //do combat
+
+                //if time
+                //let players choose captain
+                //let players choose ship
 
                 do
                 {
                     //TODONE 6. Create the menu
                     #region Menu
                     //Check potential other options.
-                    string secondOption = CheckSecondOption(encounter.SecondOptionGetter, encounter.SecondOptionText, c1);
-                   // string hopeThisWorks = wit3.ConType;
-                    //if (hopeThisWorks == "Engineering")
-                    //{
-
-                    //} else if (hopeThisWorks == "Tactics")
-                    //{
-
-                    //} else if (hopeThisWorks == "Charisma")
-                    //{
-
-                    //} else if (hopeThisWorks == "Wits" && w)
-                    //{
-                    //    secondOption= wit3.
-                    //}
+                    string secondOption = CheckSecondOption(encounter.Weakness, encounter.WeaknessText, c1);
+                   
                     Console.Write("\n\nPlease Choose an Action:\n" +
-                        //"A) Attack\n" +
-                        "A) " + encounter.BaseOption + "\n" +
+                        "A) Attack!\n" +
                         secondOption +
                         "R) Run Away\n" +
-                        "P) Player Info\n" +
-                        "M) Monster Info\n" +
+                        "S) Player Ship Info\n" +
+                        "Z) Encounter Info\n" +
                         "X) Exit the application\n\n" +
                         $"Score: {score}\n\n");
                     #endregion
@@ -104,36 +92,27 @@ namespace DungeonApplication
                     switch (userChoice)
                     {
                         case ConsoleKey.A:
-                            Console.WriteLine("Attack\n");
-                            //TODO 10. Build attack logic and place here.
-                            //Combat.DoBattle(player, monster);
-                            //if (monster.Life <= 0)
-                            //{
-                            //    //it's dead - you could put the logic here to get items, get life back, or something simliar due to defeating the monster.
-                            //    Console.ForegroundColor = ConsoleColor.Green;
-                            //    Console.WriteLine("\nYou killed {0}!\n", monster.Name);
-                            //    Console.ResetColor();
-                            //    //get a new room and monster
-                            //    reload = true;
-                            //    score++;
-                            //}
+                            Console.WriteLine("\n");
+                            
+                            break;
+                        case ConsoleKey.B:
                             break;
                         case ConsoleKey.R:
                             Console.WriteLine("Run for your life!\n");
                             //TODO 11. Build rn away logic and place here
-                            //Console.WriteLine($"{monster.Name} attacks you as you run away.");
+                            Console.WriteLine($"{encounter.Name} attacks you as you run away.");
                             //Combat.DoAttack(monster, player);
                             reload = true;
                             break;
-                        case ConsoleKey.P:
-                            Console.WriteLine("Player info\n");
+                        case ConsoleKey.S:
+                            Console.WriteLine("Player Ship info\n");
                             //TODONE 12. Add player info
-                            Console.WriteLine(player);
+                            Console.WriteLine(monty);
                             break;
-                        case ConsoleKey.M:
-                            Console.WriteLine("Monster info\n");
+                        case ConsoleKey.Z:
+                            Console.WriteLine("Encounter info\n");
                             //TODO 13. Add Monster info
-                            //Console.WriteLine(monster);
+                            Console.WriteLine(encounter);
                             break;
                         case ConsoleKey.X:
                         case ConsoleKey.E:
@@ -145,7 +124,7 @@ namespace DungeonApplication
                             break;
                     }//end switch
                     #endregion
-                    if (player.Life <= 0)
+                    if (monty.Hull <= 0)
                     {
                         Console.WriteLine("Dude...you died\n");
                         exit = true;

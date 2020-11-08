@@ -43,15 +43,13 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Classes\Captain.cs" />
+    <Compile Include="Classes\EnemyShip.cs" />
+    <Compile Include="Classes\PlayerShip.cs" />
     <Compile Include="Classes\Ship.cs" />
     <Compile Include="Combat.cs" />
-    <Compile Include="ConsequenceHandler.cs" />
     <Compile Include="Encounter.cs" />
-    <Compile Include="Encounters\CombatEncounters.cs" />
-    <Compile Include="Encounters\WorldEncounters.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Race.cs" />
     <Compile Include="Traits.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,17 +18,17 @@ namespace DungeonLibrary
         //No fields needed because no business rules
 
         //props
-        public Race CharacterRace { get; set; }
+       // public Race CharacterRace { get; set; }
         public Weapon EquippedWeapon { get; set; } //examples of containment - one complex object being used as a field in another complex object.
 
         //ctors
-        public Player(string name, int hitChance, int block, int life, int maxLife, Race characterRace, Weapon equippedWeapon)
+        public Player(string name, int hitChance, int block, int life, int maxLife, Weapon equippedWeapon)
         {
             MaxLife = maxLife; //set this first since life depends on this value
             Name = name;
             HitChance = hitChance;
             Block = block;
-            CharacterRace = characterRace;
+            //CharacterRace = characterRace;
             EquippedWeapon = equippedWeapon;
             Life = life;
         }
@@ -42,9 +42,8 @@ namespace DungeonLibrary
                 "Life: {1} of {2}\n" +
                 "Hit Chance: {3}%\n" +
                 "Weapon: {4}\n" +
-                "Block: {5}\n" +
-                "Description: {6}\n",
-                Name, Life, MaxLife, CalcHitChance(), EquippedWeapon, Block, CharacterRace);
+                "Block: {5}\n",
+                Name, Life, MaxLife, CalcHitChance(), EquippedWeapon, Block);
         }
 
 

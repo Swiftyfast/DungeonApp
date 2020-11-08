@@ -13,17 +13,13 @@ namespace DungeonLibrary.Classes
         private int _hull;
 
         //props
-        //Ships can have beneficial properties such as extra speed (luck), hull (hp), weapons(attack), has science, has rec, has *Third Room*
 
         public string Name { get; set; }
-        public Captain MyCaptain { get; set; }
         public int Engines { get; set; }
         public int MaxHull { get; set; }
         
-        public int WeaponsInt { get; set; }
-        public string WeaponsWords { get; set; }
-        public bool ScienceLab { get; set; }
-        public bool RecRoom { get; set; }
+        public int Weapons { get; set; }
+        
         //public bool MyProperty { get; set; }
         public int Hull
         {
@@ -31,24 +27,42 @@ namespace DungeonLibrary.Classes
             set { _hull = value <= MaxHull ? value : MaxHull; }
         }
         //ctor
-        public Ship(string name, Captain myCaptain, int engines, int hull, int weaponsInt, string weaponsWords, bool scienceLab, bool recRoom)
+        public Ship(string name, int engines, int maxHull, int hull, int weapons)
         {
+            MaxHull = maxHull;
             Name = name;
-            MyCaptain = myCaptain;
             Engines = engines;
             Hull = hull;
-            WeaponsInt = weaponsInt;
-            WeaponsWords = weaponsWords;
-            ScienceLab = scienceLab;
-            RecRoom = recRoom;
+            Weapons = weapons;
 
         }
 
         //methods
 
-        public override string ToString()
-        {
-            return Name;
-        }
+        //public override string ToString()
+        //{
+        //    //NEED TO ADD SCIENCE LAB AND REC ROOM
+        //    return string.Format("Vessel Name: " +Name + "\n" +
+        //        MyCaptain + "\n" +
+        //        "Hull: " + Hull + "\n" +
+        //        "Engines: " + Engines + "\n" +
+        //        "Weapons: " + WeaponsInt + "\n" +
+        //        WeaponsWords);
+        //}
+
+        //public int EngineCheck(int input)
+        //{
+        //    int numberToCheck = input;
+        //    int engineValue = Engines;
+        //    int myInt = input + Engines;
+        //    Random rand = new Random();
+        //    int randomNumber = rand.Next(myInt);
+        //    if (randomNumber < input)
+        //    {
+        //        Hull--;
+        //    }
+
+        //    return randomNumber;
+        //}
     }
 }
