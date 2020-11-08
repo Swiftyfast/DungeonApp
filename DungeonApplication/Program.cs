@@ -29,7 +29,7 @@ namespace DungeonApplication
             EnemyShip hammerHead = new EnemyShip("Hammerhead Class Frigate", "A hammerhead class frigate appears out of the clouds. Good news lads- we're hunting sky pirate today.", 3, 3, 3, 8, "Engineering", "Our hull can take a glancing blow, and we can follow that up with a point blank shot.");
             EnemyShip scorpion = new EnemyShip("Scorpion Class Gunship", "Scorpion class gunship following behind us, Captain. Not responding to communications. Looks like she's waiting for a chance to attack.", 3, 5, 5, 7, "Tactics", "Keep it moving- they're not a mobile vessel. And don't stay in front of that tail cannon for too long.");
             EnemyShip voidSquid = new EnemyShip("Voidsquid light crusior", "Voidsquid light crusior. I didn't know that they could get into our territory with those things. We can't let it escape.", 4, 6, 6, 5, "Wits", "Try and tangle it's arms. It'll be less effective that way.");
-            EnemyShip distressSignalOne = new EnemyShip("Scuttled Altaris Heavy Crusior", "One of the old ships, Captain, looks like an Altaris Heavy Crusior. And it looks dead in the water. Metaphorically, of course. Only pirates use these things anymore, what should we do?", 1, 2, 2, 7, "Charisma", "Let's hail them. Get them to surrender without bloodshed.");
+            SittingDuck distressSignalOne = new SittingDuck("Scuttled Altaris Heavy Crusior", "One of the old ships, Captain, looks like an Altaris Heavy Crusior. And it looks dead in the water. Metaphorically, of course. Only pirates use these things anymore, what should we do?", 1, 2, 2, 7, "Charisma", "Let's hail them. Get them to surrender without bloodshed.");
             #endregion
             //Encounter[] worldEncounterArray = { we1 };
             //Encounter[] combatEncounterArray = { ce1 };
@@ -51,10 +51,6 @@ namespace DungeonApplication
                 Console.WriteLine(encounter.Description);
                
                 bool reload = false;
-
-                ////TO DO FOR SUNDAY
-                ///////TO DO FOR SUNDAY
-                ///////TO DO FOR SUNDAY
                 ///////TO DO FOR SUNDAY
                 ///////TO DO FOR SUNDAY
                 //do combat
@@ -93,7 +89,15 @@ namespace DungeonApplication
                     {
                         case ConsoleKey.A:
                             Console.WriteLine("\n");
-                            
+                            Combat.DoBattle(monty, encounter);
+                            if (encounter.Hull <= 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Sir, we shot them out of the sky!\n");
+                                score++;
+                                Console.ResetColor();
+                                reload = true;
+                            }
                             break;
                         case ConsoleKey.B:
                             break;
@@ -101,7 +105,7 @@ namespace DungeonApplication
                             Console.WriteLine("Run for your life!\n");
                             //TODO 11. Build rn away logic and place here
                             Console.WriteLine($"{encounter.Name} attacks you as you run away.");
-                            //Combat.DoAttack(monster, player);
+                            Combat.DoAttack(encounter, monty);
                             reload = true;
                             break;
                         case ConsoleKey.S:
@@ -111,7 +115,7 @@ namespace DungeonApplication
                             break;
                         case ConsoleKey.Z:
                             Console.WriteLine("Encounter info\n");
-                            //TODO 13. Add Monster info
+                            //TODONE 13. Add Monster info
                             Console.WriteLine(encounter);
                             break;
                         case ConsoleKey.X:

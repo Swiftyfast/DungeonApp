@@ -46,10 +46,12 @@
     <Compile Include="Classes\EnemyShip.cs" />
     <Compile Include="Classes\PlayerShip.cs" />
     <Compile Include="Classes\Ship.cs" />
+    <Compile Include="Classes\SittingDuck.cs" />
     <Compile Include="Combat.cs" />
     <Compile Include="Encounter.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Port.cs" />
     <Compile Include="Traits.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,35 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DungeonLibrary.Classes;
 
 namespace DungeonLibrary
 {
     public class Combat
     {
         //This class will not have fields, props, or any custom constructors as it is just a "warehouse" for different methods.
-        public static void DoAttack(Character attacker, Character defender)
+        //public static void DoAttack(Character attacker, Character defender)
+        public static void DoAttack(Ship attacker, Ship defender)
         {
+            //check if special
+
+            //get random number area stuff
+            int thisNumberOrBelow = defender.Engines;
+            int attackerWeapons = attacker.Weapons;
+
+            Random rand = new Random();
+            int randomNumber = rand.Next(thisNumberOrBelow + attackerWeapons);
+            
+            //apply if special
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            //return results
+            if (randomNumber <= thisNumberOrBelow)
+            {
+                defender.Hull--;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0} hit {1}! {1}'s hull is down to {2} strength!\n", attacker.Name, defender.Name, defender.Hull);
+                defender.Hull--;
+                Console.ResetColor();
+            } else
+            {
+                Console.WriteLine("{0} missed!\n", attacker.Name);
+            }
             
             
             
@@ -60,13 +65,13 @@ namespace DungeonLibrary
            // }//end else
         }//end DoAttack()
 
-        public static void DoBattle(Player player, Monster monster)
+        public static void DoBattle(PlayerShip player, EnemyShip monster)
         {
             //Player attacks
             DoAttack(player, monster);
 
             //If the monster is still alive, it attacks
-            if (monster.Life > 0)
+            if (monster.Hull > 0)
             {
                 DoAttack(monster, player);
             }
