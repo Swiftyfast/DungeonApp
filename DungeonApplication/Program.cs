@@ -49,7 +49,9 @@ namespace DungeonApplication
 
                 Console.WriteLine("Captain, we have a ship on sensors!");
                 Console.WriteLine(encounter.Description);
-               
+
+                Console.WriteLine(encounter.GetType());
+
                 bool reload = false;
                 ///////TO DO FOR SUNDAY
                 ///////TO DO FOR SUNDAY
@@ -59,6 +61,7 @@ namespace DungeonApplication
                 //let players choose captain
                 //let players choose ship
 
+               
                 do
                 {
                     //TODONE 6. Create the menu
@@ -84,6 +87,9 @@ namespace DungeonApplication
                     Console.Clear();
 
                     //TODO 9. Build out the switch for userChoice
+                    /////////////////////////////
+                    /////Combat switch below/////
+                    /////////////////////////////
                     #region Game Experience - Switch
                     switch (userChoice)
                     {
@@ -100,6 +106,20 @@ namespace DungeonApplication
                             }
                             break;
                         case ConsoleKey.B:
+                            Combat.DoAttack(monty, encounter);
+                            if (encounter.Hull > 0)
+                            {
+                                Combat.DoBattle(monty, encounter);
+                            }
+                            if (encounter.Hull <= 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Sir, we shot them out of the sky!\n");
+                                score++;
+                                Console.ResetColor();
+                                reload = true;
+                            }
+
                             break;
                         case ConsoleKey.R:
                             Console.WriteLine("Run for your life!\n");

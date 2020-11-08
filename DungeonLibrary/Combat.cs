@@ -31,7 +31,6 @@ namespace DungeonLibrary
                 defender.Hull--;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("{0} hit {1}! {1}'s hull is down to {2} strength!\n", attacker.Name, defender.Name, defender.Hull);
-                defender.Hull--;
                 Console.ResetColor();
             } else
             {
