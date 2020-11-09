@@ -46,13 +46,13 @@ namespace DungeonApplication
                 Console.WriteLine("Captain, we have a ship on sensors!");
                 Console.WriteLine(encounter.Description);
 
-                Console.WriteLine(encounter.GetType());
+                //Console.WriteLine(encounter.GetType());
                 //string getTypeCheck = encounter.GetType();
                 bool reload = false;
-                //if (encounter.GetType() = DungeonLibrary.Classes.EnemyShip)
-                //{
-                //    Console.WriteLine("This woked");
-                //}
+                if (encounter.GetType() == hammerHead.GetType())
+                {
+                    Console.WriteLine("It's a enemyShip, and this woked");
+                }
                 do
                 {
                     //TODONE 6. Create the menu
