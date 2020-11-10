@@ -51,26 +51,117 @@ namespace DungeonApplication
                 bool reload = false;
                 if (encounter.GetType() == hammerHead.GetType())
                 {
-                    Console.WriteLine("It's a enemyShip, and this worked");
+                    //Console.WriteLine("It's a enemyShip, and this worked");
+                    do
+                    {
+                        //TODONE 6. Create the menu
+                        #region Menu
+                        //Check potential other options.
+                        string secondOption = CheckSecondOption(encounter.Weakness, encounter.WeaknessText, c1);
+                        Console.Write("\n\nPlease Choose an Action:\n" +
+                            "A) Attack!\n" +
+                            secondOption +
+                            "P) Run Away, but return to port\n" +
+                            "R) Run Away\n" +
+                            "S) Player Ship Info\n" +
+                            "Z) Encounter Info\n" +
+                            "X) Exit the application\n\n" +
+                            $"Score: {score}\n\n");
+                        #endregion
+                        //TODONE: get user choice
+                        #region UserChoice
+                        ConsoleKey userChoice = Console.ReadKey(true).Key;
+                        #endregion
+
+                        //TODO 8. Clear the console after we get input from the user
+                        Console.Clear();
+
+                        #region Game Experience - Switch
+
+                        switch (userChoice)
+                        {
+                            case ConsoleKey.A:
+                                Console.WriteLine("\n");
+                                Combat.DoBattle(monty, encounter);
+                                if (encounter.Hull <= 0)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.WriteLine("Sir, we shot them out of the sky!\n");
+                                    score++;
+                                    Console.ResetColor();
+                                    reload = true;
+                                }
+                                break;
+                            #region Special Trait logic
+                            case ConsoleKey.B:
+                                Combat.DoAttack(monty, encounter);
+                                if (encounter.Hull > 0)
+                                {
+                                    Combat.DoBattle(monty, encounter);
+                                }
+                                if (encounter.Hull <= 0)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.WriteLine("Sir, we shot them out of the sky!\n");
+                                    score++;
+                                    Console.ResetColor();
+                                    reload = true;
+                                }
+
+                                break;
+                            #endregion
+                            case ConsoleKey.P:
+                                //Console.WriteLine("Return to Port");
+                                Combat.DoAttack(encounter, monty);
+                                Port.GoToPort(score, monty);
+                                reload = true;
+                                break;
+                            case ConsoleKey.R:
+                                Console.WriteLine("Run for your life!\n");
+                                //TODO 11. Build rn away logic and place here
+                                Console.WriteLine($"{encounter.Name} attacks you as you run away.");
+                                Combat.DoAttack(encounter, monty);
+                                reload = true;
+                                break;
+                            case ConsoleKey.S:
+                                Console.WriteLine("Player Ship info\n");
+                                //TODONE 12. Add player info
+                                Console.WriteLine(monty);
+                                break;
+                            case ConsoleKey.Z:
+                                Console.WriteLine("Encounter info\n");
+                                //TODONE 13. Add Monster info
+                                Console.WriteLine(encounter);
+                                break;
+                            case ConsoleKey.X:
+                            case ConsoleKey.E:
+                                Console.WriteLine("No one likes a quitter...Be gone!\n");
+                                exit = true;//Upate exit
+                                break;
+                            default:
+                                Console.WriteLine("Thou hast chosen an improper action. Choose a key from the menu or suffer in purgatory!\n");
+                                break;
+                        }//end switch
+                        #endregion
+                        if (monty.Hull <= 0)
+                        {
+                            Console.WriteLine("Dude...you died\n");
+                            exit = true;
+                        }
+                        //TODO 14. Handle player life
+                    } while (!reload && !exit);
                 } else if (encounter.GetType() == distressSignalOne.GetType())
                 {
-                    Console.WriteLine("The other thing worked too");
-                }
-                do
-                {
-                    //TODONE 6. Create the menu
-                    #region Menu
-                    //Check potential other options.
-                    string secondOption = CheckSecondOption(encounter.Weakness, encounter.WeaknessText, c1);
-                    Console.Write("\n\nPlease Choose an Action:\n" +
-                        "A) Attack!\n" +
-                        secondOption +
-                        "P) Run Away, but return to port\n" +
-                        "R) Run Away\n" +
-                        "S) Player Ship Info\n" +
-                        "Z) Encounter Info\n" +
-                        "X) Exit the application\n\n" +
-                        $"Score: {score}\n\n");
+                    #region SittingDucks Menu
+                    //User menu
+                    Console.WriteLine("A) Use your engineering knowledge\n" +
+                        "B) Use your tactical knowledge\n" +
+                        "C) Use your charisma\n" +
+                        "D) Use your wits\n" +
+                        "P) Return to port\n" +
+                        "R) Run away\n" +
+                        "X) Exit the Application\n\n" +
+                            $"Score: {score}\n\n");
                     #endregion
                     //TODONE: get user choice
                     #region UserChoice
@@ -80,87 +171,37 @@ namespace DungeonApplication
                     //TODO 8. Clear the console after we get input from the user
                     Console.Clear();
 
-                    //TODO 9. Build out the switch for userChoice
-                    /////////////////////////////
-                    /////Combat switch below/////
-                    /////////////////////////////
-                    #region Game Experience - Switch
-                    //if (encounter.GetType() == DungeonLibrary.Classes.EnemyShip)
-                    //{
-
-                    //}
                     switch (userChoice)
                     {
                         case ConsoleKey.A:
-                            Console.WriteLine("\n");
-                            Combat.DoBattle(monty, encounter);
-                            if (encounter.Hull <= 0)
+                            //Tactics
+                            if(monty.MyCaptain.Expertise == "Tactics" || encounter.Weakness == "Tactics")
                             {
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("Sir, we shot them out of the sky!\n");
-                                score++;
-                                Console.ResetColor();
-                                reload = true;
-                            }
-                            break;
-                        #region Special Trait logic
-                        case ConsoleKey.B:
-                            Combat.DoAttack(monty, encounter);
-                            if (encounter.Hull > 0)
-                            {
-                                Combat.DoBattle(monty, encounter);
-                            }
-                            if (encounter.Hull <= 0)
-                            {
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("Sir, we shot them out of the sky!\n");
-                                score++;
-                                Console.ResetColor();
-                                reload = true;
-                            }
 
-                            break;
-                        #endregion
-                        case ConsoleKey.P:
-                            //Console.WriteLine("Return to Port");
-                            Combat.DoAttack(encounter, monty);
-                            Port.GoToPort(score, monty);
-                            reload = true;
-                            break;
-                        case ConsoleKey.R:
-                            Console.WriteLine("Run for your life!\n");
-                            //TODO 11. Build rn away logic and place here
-                            Console.WriteLine($"{encounter.Name} attacks you as you run away.");
-                            Combat.DoAttack(encounter, monty);
-                            reload = true;
-                            break;
-                        case ConsoleKey.S:
-                            Console.WriteLine("Player Ship info\n");
-                            //TODONE 12. Add player info
-                            Console.WriteLine(monty);
-                            break;
-                        case ConsoleKey.Z:
-                            Console.WriteLine("Encounter info\n");
-                            //TODONE 13. Add Monster info
-                            Console.WriteLine(encounter);
-                            break;
-                        case ConsoleKey.X:
-                        case ConsoleKey.E:
-                            Console.WriteLine("No one likes a quitter...Be gone!\n");
-                            exit = true;//Upate exit
+                            }
                             break;
                         default:
-                            Console.WriteLine("Thou hast chosen an improper action. Choose a key from the menu or suffer in purgatory!\n");
                             break;
-                    }//end switch
-                    #endregion
-                    if (monty.Hull <= 0)
-                    {
-                        Console.WriteLine("Dude...you died\n");
-                        exit = true;
                     }
-                    //TODO 14. Handle player life
-                } while (!reload && !exit);
+
+
+
+
+
+
+
+
+
+
+
+
+                }
+                //Might need to make this code fore everything or put it right here.
+                //if (monty.Hull <= 0)
+                //{
+                //    Console.WriteLine("Dude...you died\n");
+                //    exit = true;
+                //}
             } while (!exit);//while exit is NOT TRUE keep in the loop
 
         } //end Main()

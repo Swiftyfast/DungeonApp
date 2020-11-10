@@ -44,6 +44,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="Classes\Captain.cs" />
     <Compile Include="Classes\EnemyShip.cs" />
+    <Compile Include="Classes\Noncombat.cs" />
     <Compile Include="Classes\PlayerShip.cs" />
     <Compile Include="Classes\Ship.cs" />
     <Compile Include="Classes\SittingDuck.cs" />
