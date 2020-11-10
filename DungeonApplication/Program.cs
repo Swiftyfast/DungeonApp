@@ -51,7 +51,10 @@ namespace DungeonApplication
                 bool reload = false;
                 if (encounter.GetType() == hammerHead.GetType())
                 {
-                    Console.WriteLine("It's a enemyShip, and this woked");
+                    Console.WriteLine("It's a enemyShip, and this worked");
+                } else if (encounter.GetType() == distressSignalOne.GetType())
+                {
+                    Console.WriteLine("The other thing worked too");
                 }
                 do
                 {
