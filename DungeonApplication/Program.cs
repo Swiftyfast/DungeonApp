@@ -168,19 +168,95 @@ namespace DungeonApplication
                     #endregion
                     //TODONE: get user choice
                     #region UserChoice
-                    ConsoleKey userChoice = Console.ReadKey(true).Key;
+                    ConsoleKey sittingDuckChoice = Console.ReadKey(true).Key;
                     #endregion
 
                     //TODO 8. Clear the console after we get input from the user
                     Console.Clear();
 
-                    switch (userChoice)
+                    switch (sittingDuckChoice)
                     {
                         case ConsoleKey.A:
                             //Tactics
-                            if(monty.MyCaptain.Expertise == "Tactics" || encounter.Weakness == "Tactics")
+                            if (encounter.Weakness == "Engineering")
+                            {
+                                Console.WriteLine("Complete success, Captain!");
+                                score++;
+                                score++;
+                                reload = true;
+                            } else if (monty.MyCaptain.Expertise == "Engineering")
+                            {
+                                Console.WriteLine("Well that didn't go perfect...but we made it.");
+                                score++;
+                                reload = true;
+                            } else
+                            {
+                                Console.WriteLine("We have taken damage...");
+                                monty.Hull--;
+                                reload = true;
+                            }
+                            break;
+                        case ConsoleKey.B:
+                            //Tactics
+                            if (encounter.Weakness == "Tactics")
+                            {
+                                Console.WriteLine("Complete success, Captain!");
+                                score++;
+                                score++;
+                                reload = true;
+                            }
+                            else if (monty.MyCaptain.Expertise == "Tactics")
+                            {
+                                Console.WriteLine("Well that didn't go perfect...but we made it.");
+                                score++;
+                                reload = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("We have taken damage...");
+                                monty.Hull--;
+                                reload = true;
+                            }
+                            break;
+                        case ConsoleKey.C:
+                            //Tactics
+                            if (encounter.Weakness == "Charisma")
+                            {
+                                Console.WriteLine("Complete success, Captain!");
+                                score++;
+                                score++;
+                                reload = true;
+                            }
+                            else if (monty.MyCaptain.Expertise == "Charisma")
+                            {
+                                Console.WriteLine("Well that didn't go perfect...but we made it.");
+                                score++;
+                                reload = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("We have taken damage...");
+                                monty.Hull--;
+                                reload = true;
+                            }
+                            break;
+                        case ConsoleKey.D:
+                            //Tactics
+                            if (encounter.Weakness == "Wits")
                             {
 
+                            }
+                            else if (monty.MyCaptain.Expertise == "Wits")
+                            {
+                                Console.WriteLine("Well that didn't go perfect...but we made it.");
+                                score++;
+                                reload = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("We have taken damage...");
+                                monty.Hull--;
+                                reload = true;
                             }
                             break;
                         default:
