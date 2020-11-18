@@ -34,7 +34,7 @@ namespace DungeonApplication
                 EnemyShip fighterSquadron = new EnemyShip("Four pirate fighters", "Four unidentified fighters heading this way Captain. Not responding to communications.", 4, 4, 4, 4, "Engineering", "Show them the thick part of our hull as they advance. They won't be able to pierce our metal hide.");
                 SittingDuck distressSignalOne = new SittingDuck("Scuttled Altaris Heavy Crusior", "One of the old ships, Captain, looks like an Altaris Heavy Crusior. And it looks dead in the water. Metaphorically, of course. Only pirates use these things anymore, what should we do?", 1, 2, 2, 7, "Charisma", "Let's hail them. Get them to surrender without bloodshed.");
                 #endregion
-                EnemyShip[] enemyShipArray = { hammerHead, scorpion, voidSquid, distressSignalOne };
+                EnemyShip[] enemyShipArray = { hammerHead, scorpion, voidSquid, fighterSquadron, loneFighter, distressSignalOne };
 
                 //*******************************
                 //*******Call a new room*********
@@ -105,6 +105,7 @@ namespace DungeonApplication
                                 {
                                     Console.ForegroundColor = ConsoleColor.Green;
                                     Console.WriteLine("Sir, we shot them out of the sky!\n");
+                                    score++;
                                     score++;
                                     Console.ResetColor();
                                     reload = true;
@@ -185,16 +186,6 @@ namespace DungeonApplication
                         default:
                             break;
                     }
-
-
-
-
-
-
-
-
-
-
 
 
                 }
