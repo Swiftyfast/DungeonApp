@@ -33,9 +33,13 @@ namespace DungeonApplication
                 EnemyShip loneFighter = new EnemyShip("A single pirate fighter", "Small personal craft dead ahead, Captain! Looks like it's a pirate and looks like it's alone", 1, 1, 1, 1, "Tactics", "Cut them off at the pass");
                 EnemyShip fighterSquadron = new EnemyShip("Four pirate fighters", "Four unidentified fighters heading this way Captain. Not responding to communications.", 4, 4, 4, 4, "Engineering", "Show them the thick part of our hull as they advance. They won't be able to pierce our metal hide.");
                 SittingDuck distressSignalOne = new SittingDuck("Scuttled Altaris Heavy Crusior", "One of the old ships, Captain, looks like an Altaris Heavy Crusior. And it looks dead in the water. Metaphorically, of course. Only pirates use these things anymore, what should we do?", 1, 2, 2, 7, "Charisma", "Let's hail them. Get them to surrender without bloodshed.");
+                SittingDuck distressSignalTwo = new SittingDuck("Broken Cruise ship", "Captain, there is a heavily damaged passenger ship, barely in the sky and headed for a crash landing in populated area. We think there are still survivors aboard. What should we do?", 1, 2, 2, 7, "Engineering", "Try and nudge them out of the way. I know just the spot along the hull.");
+                SittingDuck distressSignalThree = new SittingDuck("Betelguese Light crusior", "An old fleet ship, Captain. They are communicating with us, and are saying that there is some strange gas leak that's affecting the crew. They are requesting assistance", 1, 2, 2, 7, "Wits", "Let's hail them. Ask them if the gas sinks or raises to the ceiling...");
+                SittingDuck distressSignalFour = new SittingDuck("Mirror ship", "Two enemy ships heading for a trade caravan sir. We can take them, but if we engage one the other one will make a break for it.", 1, 2, 2, 7, "Tactics", "Let's hail them. Get them to surrender without bloodshed.");
                 #endregion
-                EnemyShip[] enemyShipArray = { hammerHead, scorpion, voidSquid, fighterSquadron, loneFighter, distressSignalOne };
-
+                EnemyShip[] enemyShipArray = { hammerHead, scorpion, voidSquid, fighterSquadron, loneFighter, distressSignalOne, distressSignalTwo, distressSignalThree, distressSignalFour };
+                //Test Array below, real one above
+                //EnemyShip[] enemyShipArray = { distressSignalOne, distressSignalTwo, distressSignalThree, distressSignalFour };
                 //*******************************
                 //*******Call a new room*********
                 //******************************
@@ -177,10 +181,10 @@ namespace DungeonApplication
                     switch (sittingDuckChoice)
                     {
                         case ConsoleKey.A:
-                            //Tactics
+                            //Engineering
                             if (encounter.Weakness == "Engineering")
                             {
-                                Console.WriteLine("Complete success, Captain!");
+                                Console.WriteLine("Complete success, Captain! Your engineering knowledge proves itself invaluable yet again.");
                                 score++;
                                 score++;
                                 reload = true;
@@ -191,7 +195,7 @@ namespace DungeonApplication
                                 reload = true;
                             } else
                             {
-                                Console.WriteLine("We have taken damage...");
+                                Console.WriteLine("Sir, not sure how your Engineering expertise was supposed to help there. We have taken damage...");
                                 monty.Hull--;
                                 reload = true;
                             }
@@ -200,7 +204,7 @@ namespace DungeonApplication
                             //Tactics
                             if (encounter.Weakness == "Tactics")
                             {
-                                Console.WriteLine("Complete success, Captain!");
+                                Console.WriteLine("Complete success, Captain! Your tactics were impeccable");
                                 score++;
                                 score++;
                                 reload = true;
@@ -213,14 +217,14 @@ namespace DungeonApplication
                             }
                             else
                             {
-                                Console.WriteLine("We have taken damage...");
+                                Console.WriteLine("A little too much bravado with the aggressive tactics, Captain. We have taken damage...");
                                 monty.Hull--;
                                 reload = true;
                             }
                             break;
                         case ConsoleKey.C:
-                            //Tactics
-                            if (encounter.Weakness == "Charisma")
+                            //Charisma
+                            if (encounter.Weakness == "Captain, that was a complete success! You may be the most charismatic sailor in the fleet!")
                             {
                                 Console.WriteLine("Complete success, Captain!");
                                 score++;
@@ -235,16 +239,19 @@ namespace DungeonApplication
                             }
                             else
                             {
-                                Console.WriteLine("We have taken damage...");
+                                Console.WriteLine("Guess they didn't want to talk after all! We have taken damage...");
                                 monty.Hull--;
                                 reload = true;
                             }
                             break;
                         case ConsoleKey.D:
-                            //Tactics
+                            //Wits
                             if (encounter.Weakness == "Wits")
                             {
-
+                                Console.WriteLine("We didn't know where you were going, Captain, but your wits have been proven second to none.");
+                                score++;
+                                score++;
+                                reload = true;
                             }
                             else if (monty.MyCaptain.Expertise == "Wits")
                             {
@@ -254,7 +261,7 @@ namespace DungeonApplication
                             }
                             else
                             {
-                                Console.WriteLine("We have taken damage...");
+                                Console.WriteLine("Can't think your way out of every situation, Captain. We have taken damage...");
                                 monty.Hull--;
                                 reload = true;
                             }
