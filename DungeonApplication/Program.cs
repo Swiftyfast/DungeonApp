@@ -79,7 +79,31 @@ namespace DungeonApplication
             //    "X) Exit the Application");
 
             ////Some Logic
-
+            //ConsoleKey shipChoice = Console.ReadKey(true).Key;
+            //switch (shipChoice)
+            //{
+            //    case ConsoleKey.A:
+            //        playerCaptain = monty;
+            //        break;
+            //    case ConsoleKey.B:
+            //        playerCaptain = excalibur;
+            //        break;
+            //    case ConsoleKey.C:
+            //        playerCaptain = tempest;
+            //        break;
+            //    case ConsoleKey.D:
+            //        playerCaptain = rose;
+            //        break;
+            //    case ConsoleKey.S:
+            //        break;
+            //    case ConsoleKey.E:
+            //    case ConsoleKey.X:
+            //        break;
+            //    default:
+            //        Console.WriteLine("That was not a valid key. Goodbye");
+            //        //Change this to nothing after getting a do-while for Captains made.
+            //        break;
+            //}
             #endregion
 
             //Below are the captain and ship that are for testing
@@ -248,7 +272,10 @@ namespace DungeonApplication
                             //Engineering
                             if (encounter.Weakness == "Engineering")
                             {
-                                Console.WriteLine("Complete success, Captain! Your engineering knowledge proves itself invaluable yet again.");
+                                Console.WriteLine(encounter.WeaknessText);
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("\nComplete success, Captain! Your engineering knowledge proves itself invaluable yet again.");
+                                Console.ResetColor();
                                 score++;
                                 score++;
                                 reload = true;
@@ -259,7 +286,9 @@ namespace DungeonApplication
                                 reload = true;
                             } else
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Sir, not sure how your Engineering expertise was supposed to help there. We have taken damage...");
+                                Console.ResetColor();
                                 monty.Hull--;
                                 reload = true;
                             }
@@ -268,7 +297,10 @@ namespace DungeonApplication
                             //Tactics
                             if (encounter.Weakness == "Tactics")
                             {
-                                Console.WriteLine("Complete success, Captain! Your tactics were impeccable");
+                                Console.WriteLine(encounter.WeaknessText);
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("\nComplete success, Captain! Your tactics were impeccable");
+                                Console.ResetColor();
                                 score++;
                                 score++;
                                 reload = true;
@@ -281,16 +313,21 @@ namespace DungeonApplication
                             }
                             else
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("A little too much bravado with the aggressive tactics, Captain. We have taken damage...");
+                                Console.ResetColor();
                                 monty.Hull--;
                                 reload = true;
                             }
                             break;
                         case ConsoleKey.C:
                             //Charisma
-                            if (encounter.Weakness == "Captain, that was a complete success! You may be the most charismatic sailor in the fleet!")
+                            if (encounter.Weakness == "Charisma")
                             {
-                                Console.WriteLine("Complete success, Captain!");
+                                Console.WriteLine(encounter.WeaknessText);
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("\nComplete success, Captain!");
+                                Console.ResetColor();
                                 score++;
                                 score++;
                                 reload = true;
@@ -303,7 +340,9 @@ namespace DungeonApplication
                             }
                             else
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Guess they didn't want to talk after all! We have taken damage...");
+                                Console.ResetColor();
                                 monty.Hull--;
                                 reload = true;
                             }
@@ -312,7 +351,10 @@ namespace DungeonApplication
                             //Wits
                             if (encounter.Weakness == "Wits")
                             {
-                                Console.WriteLine("We didn't know where you were going, Captain, but your wits have been proven second to none.");
+                                Console.WriteLine(encounter.WeaknessText);
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("\nWe didn't know where you were going, Captain, but your wits have been proven second to none.");
+                                Console.ResetColor();
                                 score++;
                                 score++;
                                 reload = true;
@@ -325,7 +367,9 @@ namespace DungeonApplication
                             }
                             else
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Can't think your way out of every situation, Captain. We have taken damage...");
+                                Console.ResetColor();
                                 monty.Hull--;
                                 reload = true;
                             }

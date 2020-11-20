@@ -31,6 +31,8 @@ namespace DungeonLibrary
                     //Add in later if the ship max hull cant take another 3
                     {
                         ship.Hull = ship.Hull + 3;
+                        score--;
+                        score--;
                         Console.WriteLine("Hull repaired by 3.");
                     } else if (score < 2)
                     {
@@ -41,6 +43,10 @@ namespace DungeonLibrary
                     if (score >= 4)
                     {
                         ship.Weapons++;
+                        score--;
+                        score--;
+                        score--;
+                        score--;
                         Console.WriteLine("Ship weapons increase by 1. They are now " + ship.Weapons);
                     }
                     break;
@@ -48,6 +54,10 @@ namespace DungeonLibrary
                     if (score >= 4)
                     {
                         ship.Engines++;
+                        score--;
+                        score--;
+                        score--;
+                        score--;
                         Console.WriteLine("Ship engines increase by 1. They are now " + ship.Engines);
                     }
                     break;
