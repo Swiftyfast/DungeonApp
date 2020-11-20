@@ -16,12 +16,43 @@ namespace DungeonApplication
             Console.Title = "Hunting Skyship Pirates";
             Console.WriteLine("Your journey begins...\n");
             int score = 0;
+            #region Captains
+                Captain greybeard = new Captain("Captain Greybeard", "Tactics", "Grizzled and uncompromising, Captain Greybeard expects perfection from his sailors.");
+            Captain rahvenzwood = new Captain("Captain Rahvenzwood", "Wits", "Always looking for a turn of phrase and with a smirk seemingly stuck on their mouth, Captain Rahvenzwood doesn't just want to defeat the enemy- they want to outsmart them.");
+            Captain valdarion = new Captain("Captain Valdarion", "Charisma", "A well kept ship and crew is a priority for Captain Valdarion, who is always drawing stares wether at a government function, the military academy, or about in civilian life.");
+            Captain arja = new Captain("Captain Arja", "Engineering", "Short in stature but tall in legend, Captain Arja makes sure to know the equipment that they are sailing to battle with exceptionally well.");
+            #endregion
+            #region Ships
 
-            //Weapon sword = new Weapon(1, 8, "Long Sword", 10, false);
-            //Player player = new Player("Sir Arthur", 70, 2, 40, 40, Race.Elf, sword);
+            #endregion
 
+            //Console.WriteLine("Please choose a Captain: +\n" +
+            //    "A) Captain Greybeard - Tactics\n" +
+            //    "B) Captain Rahvenzwood - Wits\n" +
+            //    "C) Captain Valdarion - Charisma\n" +
+            //    "D) Captain Arja - Engineering\n" +
+            //    "T) Descriptions of the Captains\n" +
+            //    "X) Exit the Application");
+
+            ////Some Logic
+
+            //Console.WriteLine("Please choose a Ship: \n" +
+            //    "A) the Montgomery\n" +
+            //    "B) the Excalibur\n" +
+            //    "C) the Tempest\n" +
+            //    "D) the White Rose\n" +
+            //    "S) Show stats for each ship\n" +
+            //    "X) Exit the Application");
+
+
+
+            //Below are the captain and ship that are for testing
             Captain c1 = new Captain("Captain Greybeard", "Tactics", "Grizzled and uncompromising, Captain Greybeard expects perfection from his sailors.");
             PlayerShip monty = new PlayerShip("the Montgomery", c1, 7, 10, 10, 5, true, false);
+            //Additional Ships 
+            PlayerShip excalibur = new PlayerShip("the Excalibur", c1, 5, 10, 10, 9, false, false);
+            PlayerShip tempest = new PlayerShip("the Tempest", c1, 7, 8, 8, 7, false, true);
+            PlayerShip rose = new PlayerShip("the White Rose", c1, 5, 10, 10, 5, true, true);
 
             bool exit = false;
             do
