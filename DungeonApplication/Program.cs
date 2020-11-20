@@ -25,17 +25,43 @@ namespace DungeonApplication
             #region Ships
 
             #endregion
-
+            #region Choosing a Captain
+            Captain playerCaptain = new Captain();
             //Console.WriteLine("Please choose a Captain: +\n" +
             //    "A) Captain Greybeard - Tactics\n" +
             //    "B) Captain Rahvenzwood - Wits\n" +
             //    "C) Captain Valdarion - Charisma\n" +
             //    "D) Captain Arja - Engineering\n" +
-            //    "T) Descriptions of the Captains\n" +
+            //    "S) Descriptions of the Captains\n" +
             //    "X) Exit the Application");
 
             ////Some Logic
-
+            //ConsoleKey captainChoice = Console.ReadKey(true).Key;
+            //switch (captainChoice)
+            //{
+            //    case ConsoleKey.A:
+            //        playerCaptain = greybeard;
+            //        break;
+            //    case ConsoleKey.B:
+            //        playerCaptain = rahvenzwood;
+            //        break;
+            //    case ConsoleKey.C:
+            //        playerCaptain = valdarion;
+            //        break;
+            //    case ConsoleKey.D:
+            //        playerCaptain = arja;
+            //        break;
+            //    case ConsoleKey.S:
+            //        break;
+            //    case ConsoleKey.E:
+            //    case ConsoleKey.X:
+            //        break;
+            //    default:
+            //        Console.WriteLine("That was not a valid key. Goodbye");
+            //        //Change this to nothing after getting a do-while for Captains made.
+            //        break;
+            //}
+            #endregion
             //Console.WriteLine("Please choose a Ship: \n" +
             //    "A) the Montgomery\n" +
             //    "B) the Excalibur\n" +
@@ -44,15 +70,15 @@ namespace DungeonApplication
             //    "S) Show stats for each ship\n" +
             //    "X) Exit the Application");
 
-
+            ////Some Logic
 
             //Below are the captain and ship that are for testing
             Captain c1 = new Captain("Captain Greybeard", "Tactics", "Grizzled and uncompromising, Captain Greybeard expects perfection from his sailors.");
-            PlayerShip monty = new PlayerShip("the Montgomery", c1, 7, 10, 10, 5, true, false);
+            PlayerShip monty = new PlayerShip("the Montgomery", c1, 7, 12, 12, 5, true, false);
             //Additional Ships 
-            PlayerShip excalibur = new PlayerShip("the Excalibur", c1, 5, 10, 10, 9, false, false);
-            PlayerShip tempest = new PlayerShip("the Tempest", c1, 7, 8, 8, 7, false, true);
-            PlayerShip rose = new PlayerShip("the White Rose", c1, 5, 10, 10, 5, true, true);
+            PlayerShip excalibur = new PlayerShip("the Excalibur", c1, 5, 12, 12, 9, false, false);
+            PlayerShip tempest = new PlayerShip("the Tempest", c1, 7, 10, 10, 7, false, true);
+            PlayerShip rose = new PlayerShip("the White Rose", c1, 5, 12, 12, 5, true, true);
 
             bool exit = false;
             do
