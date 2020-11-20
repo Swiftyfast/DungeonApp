@@ -21,8 +21,6 @@ namespace DungeonApplication
             Captain rahvenzwood = new Captain("Captain Rahvenzwood", "Wits", "Always looking for a turn of phrase and with a smirk seemingly stuck on their mouth, Captain Rahvenzwood doesn't just want to defeat the enemy- they want to outsmart them.");
             Captain valdarion = new Captain("Captain Valdarion", "Charisma", "A well kept ship and crew is a priority for Captain Valdarion, who is always drawing stares wether at a government function, the military academy, or about in civilian life.");
             Captain arja = new Captain("Captain Arja", "Engineering", "Short in stature but tall in legend, Captain Arja makes sure to know the equipment that they are sailing to battle with exceptionally well.");
-            #endregion
-            #region Ships
 
             #endregion
             #region Choosing a Captain
@@ -62,6 +60,16 @@ namespace DungeonApplication
             //        break;
             //}
             #endregion
+            #region Ships
+            //(These are here instead of grouped with the Captain objects because they need the variable declared in choosing a Captain to be before them.
+            //Ships
+            //Put in monty here after the logic is complete further down the application
+            //These are commented out because c1 is defined further down.
+            //PlayerShip excalibur = new PlayerShip("the Excalibur", c1, 5, 12, 12, 9, false, false);
+            //PlayerShip tempest = new PlayerShip("the Tempest", c1, 7, 10, 10, 7, false, true);
+            //PlayerShip rose = new PlayerShip("the White Rose", c1, 5, 12, 12, 5, true, true);
+            #endregion
+            #region Choosing a Ship
             //Console.WriteLine("Please choose a Ship: \n" +
             //    "A) the Montgomery\n" +
             //    "B) the Excalibur\n" +
@@ -72,13 +80,12 @@ namespace DungeonApplication
 
             ////Some Logic
 
+            #endregion
+
             //Below are the captain and ship that are for testing
             Captain c1 = new Captain("Captain Greybeard", "Tactics", "Grizzled and uncompromising, Captain Greybeard expects perfection from his sailors.");
             PlayerShip monty = new PlayerShip("the Montgomery", c1, 7, 12, 12, 5, true, false);
             //Additional Ships 
-            PlayerShip excalibur = new PlayerShip("the Excalibur", c1, 5, 12, 12, 9, false, false);
-            PlayerShip tempest = new PlayerShip("the Tempest", c1, 7, 10, 10, 7, false, true);
-            PlayerShip rose = new PlayerShip("the White Rose", c1, 5, 12, 12, 5, true, true);
 
             bool exit = false;
             do
