@@ -23,6 +23,8 @@ namespace DungeonLibrary.Classes
             Engines = engines;
         }
 
+        public PlayerShip() { }
+
         //methods
 
         public override string ToString()

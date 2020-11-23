@@ -37,6 +37,8 @@ namespace DungeonLibrary.Classes
 
         }
 
+        public Ship() { }
+
         //methods
 
         //public override string ToString()

@@ -25,90 +25,92 @@ namespace DungeonApplication
             #endregion
             #region Choosing a Captain
             Captain playerCaptain = new Captain();
-            //Console.WriteLine("Please choose a Captain: +\n" +
-            //    "A) Captain Greybeard - Tactics\n" +
-            //    "B) Captain Rahvenzwood - Wits\n" +
-            //    "C) Captain Valdarion - Charisma\n" +
-            //    "D) Captain Arja - Engineering\n" +
-            //    "S) Descriptions of the Captains\n" +
-            //    "X) Exit the Application");
+            Console.WriteLine("Please choose a Captain: \n" +
+                "A) Captain Greybeard - Tactics\n" +
+                "B) Captain Rahvenzwood - Wits\n" +
+                "C) Captain Valdarion - Charisma\n" +
+                "D) Captain Arja - Engineering\n" +
+                "S) Descriptions of the Captains\n" +
+                "X) Exit the Application");
 
-            ////Some Logic
-            //ConsoleKey captainChoice = Console.ReadKey(true).Key;
-            //switch (captainChoice)
-            //{
-            //    case ConsoleKey.A:
-            //        playerCaptain = greybeard;
-            //        break;
-            //    case ConsoleKey.B:
-            //        playerCaptain = rahvenzwood;
-            //        break;
-            //    case ConsoleKey.C:
-            //        playerCaptain = valdarion;
-            //        break;
-            //    case ConsoleKey.D:
-            //        playerCaptain = arja;
-            //        break;
-            //    case ConsoleKey.S:
-            //        break;
-            //    case ConsoleKey.E:
-            //    case ConsoleKey.X:
-            //        break;
-            //    default:
-            //        Console.WriteLine("That was not a valid key. Goodbye");
-            //        //Change this to nothing after getting a do-while for Captains made.
-            //        break;
-            //}
+            //Some Logic
+            ConsoleKey captainChoice = Console.ReadKey(true).Key;
+            switch (captainChoice)
+            {
+                case ConsoleKey.A:
+                    playerCaptain = greybeard;
+                    break;
+                case ConsoleKey.B:
+                    playerCaptain = rahvenzwood;
+                    break;
+                case ConsoleKey.C:
+                    playerCaptain = valdarion;
+                    break;
+                case ConsoleKey.D:
+                    playerCaptain = arja;
+                    break;
+                case ConsoleKey.S:
+                    break;
+                case ConsoleKey.E:
+                case ConsoleKey.X:
+                    break;
+                default:
+                    Console.WriteLine("That was not a valid key. Goodbye");
+                    //Change this to nothing after getting a do-while for Captains made.
+                    break;
+            }
             #endregion
             #region Ships
             //(These are here instead of grouped with the Captain objects because they need the variable declared in choosing a Captain to be before them.
             //Ships
             //Put in monty here after the logic is complete further down the application
             //These are commented out because c1 is defined further down.
-            //PlayerShip excalibur = new PlayerShip("the Excalibur", c1, 5, 12, 12, 9, false, false);
-            //PlayerShip tempest = new PlayerShip("the Tempest", c1, 7, 10, 10, 7, false, true);
-            //PlayerShip rose = new PlayerShip("the White Rose", c1, 5, 12, 12, 5, true, true);
+            PlayerShip monty = new PlayerShip("the Montgomery", playerCaptain, 7, 12, 12, 5, true, false);
+            PlayerShip excalibur = new PlayerShip("the Excalibur", playerCaptain, 5, 12, 12, 9, false, false);
+            PlayerShip tempest = new PlayerShip("the Tempest", playerCaptain, 7, 10, 10, 7, false, true);
+            PlayerShip rose = new PlayerShip("the White Rose", playerCaptain, 5, 12, 12, 5, true, true);
+            PlayerShip flagship = new PlayerShip();
             #endregion
             #region Choosing a Ship
-            //Console.WriteLine("Please choose a Ship: \n" +
-            //    "A) the Montgomery\n" +
-            //    "B) the Excalibur\n" +
-            //    "C) the Tempest\n" +
-            //    "D) the White Rose\n" +
-            //    "S) Show stats for each ship\n" +
-            //    "X) Exit the Application");
+            Console.WriteLine("Please choose a Ship: \n" +
+                "A) the Montgomery\n" +
+                "B) the Excalibur\n" +
+                "C) the Tempest\n" +
+                "D) the White Rose\n" +
+                "S) Show stats for each ship\n" +
+                "X) Exit the Application");
 
-            ////Some Logic
-            //ConsoleKey shipChoice = Console.ReadKey(true).Key;
-            //switch (shipChoice)
-            //{
-            //    case ConsoleKey.A:
-            //        playerCaptain = monty;
-            //        break;
-            //    case ConsoleKey.B:
-            //        playerCaptain = excalibur;
-            //        break;
-            //    case ConsoleKey.C:
-            //        playerCaptain = tempest;
-            //        break;
-            //    case ConsoleKey.D:
-            //        playerCaptain = rose;
-            //        break;
-            //    case ConsoleKey.S:
-            //        break;
-            //    case ConsoleKey.E:
-            //    case ConsoleKey.X:
-            //        break;
-            //    default:
-            //        Console.WriteLine("That was not a valid key. Goodbye");
-            //        //Change this to nothing after getting a do-while for Captains made.
-            //        break;
-            //}
+            //Some Logic
+            ConsoleKey shipChoice = Console.ReadKey(true).Key;
+            switch (shipChoice)
+            {
+                case ConsoleKey.A:
+                    flagship = monty;
+                    break;
+                case ConsoleKey.B:
+                    flagship = excalibur;
+                    break;
+                case ConsoleKey.C:
+                    flagship = tempest;
+                    break;
+                case ConsoleKey.D:
+                    flagship = rose;
+                    break;
+                case ConsoleKey.S:
+                    break;
+                case ConsoleKey.E:
+                case ConsoleKey.X:
+                    break;
+                default:
+                    Console.WriteLine("That was not a valid key. Goodbye");
+                    //Change this to nothing after getting a do-while for Captains made.
+                    break;
+            }
             #endregion
 
             //Below are the captain and ship that are for testing
-            Captain c1 = new Captain("Captain Greybeard", "Tactics", "Grizzled and uncompromising, Captain Greybeard expects perfection from his sailors.");
-            PlayerShip monty = new PlayerShip("the Montgomery", c1, 7, 12, 12, 5, true, false);
+            //Captain c1 = new Captain("Captain Greybeard", "Tactics", "Grizzled and uncompromising, Captain Greybeard expects perfection from his sailors.");
+            //PlayerShip monty = new PlayerShip("the Montgomery", playerCaptain, 7, 12, 12, 5, true, false);
             //Additional Ships 
 
             bool exit = false;
@@ -151,7 +153,7 @@ namespace DungeonApplication
                         //TODONE 6. Create the menu
                         #region Menu
                         //Check potential other options.
-                        string secondOption = CheckSecondOption(encounter.Weakness, encounter.WeaknessText, c1);
+                        string secondOption = CheckSecondOption(encounter.Weakness, encounter.WeaknessText, playerCaptain);
                         Console.Write("\n\nPlease Choose an Action:\n" +
                             "A) Attack!\n" +
                             secondOption +
