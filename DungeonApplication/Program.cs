@@ -108,10 +108,6 @@ namespace DungeonApplication
             }
             #endregion
 
-            //Below are the captain and ship that are for testing
-            //Captain c1 = new Captain("Captain Greybeard", "Tactics", "Grizzled and uncompromising, Captain Greybeard expects perfection from his sailors.");
-            //PlayerShip monty = new PlayerShip("the Montgomery", playerCaptain, 7, 12, 12, 5, true, false);
-            //Additional Ships 
 
             bool exit = false;
             do
@@ -128,8 +124,6 @@ namespace DungeonApplication
                 SittingDuck distressSignalFour = new SittingDuck("Mirror ship", "Two enemy ships heading for a trade caravan sir. We can take them, but if we engage one the other one will make a break for it.", 1, 2, 2, 7, "Tactics", "Let's hail them. Get them to surrender without bloodshed.");
                 #endregion
                 EnemyShip[] enemyShipArray = { hammerHead, scorpion, voidSquid, fighterSquadron, loneFighter, distressSignalOne, distressSignalTwo, distressSignalThree, distressSignalFour };
-                //Test Array below, real one above
-                //EnemyShip[] enemyShipArray = { distressSignalOne, distressSignalTwo, distressSignalThree, distressSignalFour };
                 //*******************************
                 //*******Call a new room*********
                 //******************************
