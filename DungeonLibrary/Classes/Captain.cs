@@ -31,10 +31,7 @@ namespace DungeonLibrary.Classes
         }
 
         public Captain() { }
-        //The idea right now is out of the 4 stats, they get 1 5, 1 1, and 2 3s.
-
-
-
+        
         //methods
         public override string ToString()
         {

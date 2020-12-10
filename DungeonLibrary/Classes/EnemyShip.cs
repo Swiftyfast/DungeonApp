@@ -29,7 +29,6 @@ namespace DungeonLibrary.Classes
             string returnString = string.Format("Vessel Type: " + Name + "\n" +
                 "Description: " + Description + "\n" +
                 "Hull: " + Hull + "\n");
-            //If time put something in here about comparing current ship weapons and engines
 
             return returnString;
         }
