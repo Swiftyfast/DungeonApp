@@ -38,33 +38,6 @@ namespace DungeonLibrary.Classes
         }
 
         public Ship() { }
-
-        //methods
-
-        //public override string ToString()
-        //{
-        //    //NEED TO ADD SCIENCE LAB AND REC ROOM
-        //    return string.Format("Vessel Name: " +Name + "\n" +
-        //        MyCaptain + "\n" +
-        //        "Hull: " + Hull + "\n" +
-        //        "Engines: " + Engines + "\n" +
-        //        "Weapons: " + WeaponsInt + "\n" +
-        //        WeaponsWords);
-        //}
-
-        //public int EngineCheck(int input)
-        //{
-        //    int numberToCheck = input;
-        //    int engineValue = Engines;
-        //    int myInt = input + Engines;
-        //    Random rand = new Random();
-        //    int randomNumber = rand.Next(myInt);
-        //    if (randomNumber < input)
-        //    {
-        //        Hull--;
-        //    }
-
-        //    return randomNumber;
-        //}
+        
     }
 }
